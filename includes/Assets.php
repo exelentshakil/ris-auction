@@ -30,16 +30,14 @@ class Assets {
         wp_enqueue_style( 'stepper' );
         wp_enqueue_style( 'bootstrap' );
 
+        wp_enqueue_script( 'media-upload' );
+        wp_enqueue_script( 'file-upload' );
         wp_enqueue_script( 'add-new-form' );
 
         //wp_enqueue_script( 'update-new-form' );
         wp_enqueue_style( 'add-new-form' );
 
         wp_enqueue_media();
-
-        wp_enqueue_script( 'media-upload' );
-
-        wp_enqueue_script( 'file-upload' );
 
         wp_localize_script( 'main', 'RIS_Notify', [
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -138,18 +136,17 @@ class Assets {
                 'deps'    => ['jquery'],
             ],
             'jquery-datetimepicker-min' => [
-                'src'     => RIS_AUCTION_ASSETS . '/css/jquery.datetimepicker.min.js',
+                'src'     => RIS_AUCTION_ASSETS . '/js/jquery.datetimepicker.min.js',
                 'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/jquery.datetimepicker.min.js' ),
+                'deps'    => ['jquery'],
+            ],
+            'file-upload'               => [
+                'src'     => RIS_AUCTION_ASSETS . '/js/file-upload.js',
+                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/file-upload.js' ),
                 'deps'    => ['jquery'],
             ],
             'bootstrap'                 => [
                 'src'     => 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js',
-                'version' => '4.1',
-                'deps'    => ['jquery'],
-            ],
-
-            'file-upload'               => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/file-upload.js',
                 'version' => '4.1',
                 'deps'    => ['jquery'],
             ],

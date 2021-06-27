@@ -38,6 +38,8 @@ class RIS_Auction {
         session_start();
 
         require_once __DIR__ . '/vendor/autoload.php';
+        require_once __DIR__ . '/includes/TGM/ris-auction-dep.php';
+
         $this->define_constants();
 
         register_activation_hook( __FILE__, [$this, 'active'] );

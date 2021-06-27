@@ -7,4 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'RIS\\Auction\\Admin' => $baseDir . '/includes/Admin.php',
+    'RIS\\Auction\\Ajax' => $baseDir . '/includes/Ajax.php',
+    'RIS\\Auction\\Api' => $baseDir . '/includes/Api.php',
+    'RIS\\Auction\\Assets' => $baseDir . '/includes/Assets.php',
+    'RIS\\Auction\\Frontend' => $baseDir . '/includes/Frontend.php',
+    'RIS\\Auction\\Installer' => $baseDir . '/includes/Installer.php',
 );

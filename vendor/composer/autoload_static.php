@@ -26,6 +26,12 @@ class ComposerStaticInit217b365fa1062bf23080a518f5f68304
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'RIS\\Auction\\Admin' => __DIR__ . '/../..' . '/includes/Admin.php',
+        'RIS\\Auction\\Ajax' => __DIR__ . '/../..' . '/includes/Ajax.php',
+        'RIS\\Auction\\Api' => __DIR__ . '/../..' . '/includes/Api.php',
+        'RIS\\Auction\\Assets' => __DIR__ . '/../..' . '/includes/Assets.php',
+        'RIS\\Auction\\Frontend' => __DIR__ . '/../..' . '/includes/Frontend.php',
+        'RIS\\Auction\\Installer' => __DIR__ . '/../..' . '/includes/Installer.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

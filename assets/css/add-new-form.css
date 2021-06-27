@@ -16,13 +16,10 @@ span.ris-user {
     font-size: 24px;
 }
 
-body {
-    background-color: #000
-}
-
 .card {
     width: 400px;
-    border: none
+    border: none;
+    background: #00000005;
 }
 
 .btr {

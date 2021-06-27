@@ -21,6 +21,10 @@ class Ajax {
 
     public function ris_logout() {
 
+        wp_clear_auth_cookie();
+        wp_logout();
+        ob_clean(); // probably overkill for this, but good habit
+
         unset( $_COOKIE['ris_auction_auth_token'] );
         unset( $_COOKIE['ris_auction_auth_email'] );
         unset( $_COOKIE['ris_auction_auth_username'] );
@@ -51,7 +55,6 @@ class Ajax {
             $api_response = wp_remote_post( 'https://wordpress-582935-2005777.cloudwaysapps.com/wp-json/wp/v2/users', array(
                 //'method'    => 'PUT',
                 'headers' => array(
-                    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd29yZHByZXNzLTU4MjkzNS0yMDA1Nzc3LmNsb3Vkd2F5c2FwcHMuY29tIiwiaWF0IjoxNjI0NzMwOTkyLCJuYmYiOjE2MjQ3MzA5OTIsImV4cCI6MTYyNTMzNTc5MiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.r1wVF7S91fI8uySd0VGs8hAYsTPwNfJ2TqzkvqF3GU0',
                 ),
                 'body'    => array(
                     'username' => $username,
@@ -94,7 +97,6 @@ class Ajax {
             $api_response = wp_remote_post( get_bloginfo( 'url' ) . '/wp-json/jwt-auth/v1/token', array(
                 //'method'    => 'PUT',
                 'headers' => array(
-                    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd29yZHByZXNzLTU4MjkzNS0yMDA1Nzc3LmNsb3Vkd2F5c2FwcHMuY29tIiwiaWF0IjoxNjI0NzMwOTkyLCJuYmYiOjE2MjQ3MzA5OTIsImV4cCI6MTYyNTMzNTc5MiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.r1wVF7S91fI8uySd0VGs8hAYsTPwNfJ2TqzkvqF3GU0',
                 ),
                 'body'    => array(
                     'username' => $email,
@@ -176,11 +178,10 @@ class Ajax {
                     'body'    => array(
                         'name'              => $post_data['post_title'],
                         'type'              => 'auction',
-                        '_regular_price'    => '1000000',
+                        '_regular_price'    => '1000000.00',
                         'description'       => $post_data['post_content'],
                         'short_description' => $post_data['post_excerpt'],
                         'images'            => $images,
-
                     ),
 
                 ) );
@@ -236,27 +237,21 @@ class Ajax {
                 //'method'  => 'PUT',
 
                 'headers' => array(
-
                     'Authorization' => 'Bearer ' . $token,
-
                 ),
 
                 'body'    => array(
 
                     'name'              => $post_data['post_title'],
                     'type'              => 'auction',
-                    '_regular_price'    => '1000000',
+                    '_regular_price'    => '1000000.00',
                     'description'       => $post_data['post_content'],
                     'short_description' => $post_data['post_excerpt'],
                     'images'            => $images,
                     'meta_data'         => [
-
                         [
-
                             'key'   => 'property_data',
-
                             'value' => $property_data,
-
                         ],
 
                     ],
