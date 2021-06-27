@@ -1,0 +1,20 @@
+{
+    "name": "exelentshakil/ris-auction",
+    "description": "RIS internal app to auth / create new auction product.",
+    "type": "wordpress-plugin",
+    "license": "GPLV2",
+    "authors": [
+        {
+            "name": "exelentshakil",
+            "email": "exelentshakil@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "RIS\\Auction\\": "includes/"
+        },
+        "files": ["includes/functions.php"]
+    }
+}
